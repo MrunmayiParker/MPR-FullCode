@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig";
 import TTS from "./TTS";
 import "./bgcolor.css";
-import logo from "./envision.png";
+import logo from "../assets/reservedin.png";
 import { toast } from "react-toastify";
 import { applyColorblindFilter } from "../utils/colors";
 
@@ -28,10 +28,10 @@ function Navbar() {
   return (
     <div>
       <header className="text-gray-600 body-font">
-        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center ">
+        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <a
             aria-label="Click here to go to home page"
-            className="flex title-font font-medium items-center text-gray-900 mb-0 md:mb-0"
+            className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
             onClick={() => {
               navigate("/home");
             }}
@@ -43,17 +43,15 @@ function Navbar() {
               border="0"
               width="50"
               height="50"
-              margin="0"
-              padding="0"
             />
 
             {/* <span className="ml-3 text-xl">ReservedIn</span> */}
           </a>
-          <nav className="md:mr-0 md:ml-0 md:py-1 md:pl-2 md:border-1 md:border-gray-400 flex flex-wrap items-center text-base justify-center">
+          <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
             <br />
 
             <button
-              className="mr-2" // Added mb-2 for bottom margin
+              className="mr-5" // Added mb-2 for bottom margin
               aria-label="Click here to go to Job portal"
               onClick={() => navigate("/jobs")}
             >
@@ -62,7 +60,7 @@ function Navbar() {
 
             <br />
             <button
-              className="mr-2"
+              className="mr-5"
               aria-label="Click here to go to resume maker"
               onClick={() => navigate("/resume")}
             >
@@ -70,15 +68,15 @@ function Navbar() {
             </button>
             <br />
             <button
-              className="mr-2"
+              className="mr-5"
               aria-label="This is blogpage"
-              onClick={() => navigate("/blogs")} //make it products
+              onClick={() => navigate("/blogs")}
             >
               Products
             </button>
             <br />
             <button
-              className="mr-2"
+              className="mr-5"
               aria-label="This is for courses"
               onClick={() => navigate("/coursepage")}
             >
@@ -86,7 +84,7 @@ function Navbar() {
             </button>
             <br />
             <button
-              className="mr-2"
+              className="mr-5"
               aria-label="This is mentorship page"
               onClick={() => navigate("/mentorship")}
             >
@@ -94,14 +92,14 @@ function Navbar() {
             </button>
             <br />
             <button
-              className="mr-2"
+              className="mr-5"
               aria-label="This is grievance page"
               onClick={() => navigate("/grievance")}
             >
               Grievance
             </button>
             <button
-              className="mr-3"
+              className="mr-5"
               aria-label="This is about page"
               onClick={() => navigate("/about")}
             >
@@ -111,10 +109,10 @@ function Navbar() {
             <br />
           </nav>
 
-          {/* {(localStorage.getItem("disabilityType") === "visually-impaired" ||
+          {(localStorage.getItem("disabilityType") === "visually-impaired" ||
             localStorage.getItem("disabilityType") === "color-blind") && (
             <TTS />
-          )} */}
+          )}
 
           <button
             aria-label="to logout press logout"
@@ -128,7 +126,7 @@ function Navbar() {
                     window.location.href = "/";
                   }
             }
-            className="inline-flex items-center bg-blue-500 border-0 py-1 px-1 focus:outline-none hover:bg-blue-500 rounded text-base text-white mt-0 md:mt-0"
+            className="inline-flex items-center bg-blue-500 border-0 py-1 px-3 focus:outline-none hover:bg-blue-500 rounded text-base text-white mt-4 md:mt-0"
           >
             {localStorage.getItem("userId") ? "Logout" : "Login"}
           </button>
@@ -137,7 +135,7 @@ function Navbar() {
             onClick={() => {
               navigate("/settings");
             }}
-            className="ml-1"
+            className="ml-4"
             aria-label="Setting page"
           >
             <img
@@ -150,7 +148,7 @@ function Navbar() {
           </button>
         </div>
       </header>
-      {/* {(localStorage.getItem("disabilityType") === "visually-impaired" ||
+      {(localStorage.getItem("disabilityType") === "visually-impaired" ||
         localStorage.getItem("disabilityType") === "color-blind") && (
         <div className="bg-gray-100 p-4 text-center">
           <button
@@ -166,8 +164,8 @@ function Navbar() {
             className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
           >
             Eye Movement Tracking Start
-          </button> */}
-          {/* <button
+          </button>
+          <button
             onClick={() => {
               fetch("http://127.0.0.1:8000/stop/eyemoment")
                 .then((res) => {
@@ -180,9 +178,9 @@ function Navbar() {
             className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
           >
             Eye Movement Tracking Stop
-          </button> */}
+          </button>
 
-          {/* <button
+          <button
             onClick={() => {
               fetch("http://127.0.0.1:8000/start/handgestures")
                 .then((res) => {
@@ -195,8 +193,8 @@ function Navbar() {
             className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
           >
             Hand Gestures Tracking Start
-          </button> */}
-          {/* <button
+          </button>
+          <button
             onClick={() => {
               fetch("http://127.0.0.1:8000/stop/handgestures")
                 .then((res) => {
@@ -209,9 +207,9 @@ function Navbar() {
             className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
           >
             Hand Gestures Tracking Stop
-          </button> */}
-        {/* </div>
-      )} */}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

@@ -13,8 +13,8 @@ function Mentorship() {
   const mentors = [
     {
       id: 1,
-      name: "Jason D",
-      expertise: "Web Development",
+      name: "Mrunmayi parker",
+      expertise: "Web Developer",
       description: "Passionate about creating responsive and user-friendly websites.",
       email: "mentor1@example.com",
       photo: mentor1,
@@ -22,7 +22,7 @@ function Mentorship() {
     },
     {
       id: 2,
-      name: "Vaibhav G",
+      name: "Nahush Patil",
       expertise: "Data Science",
       description: "Enthusiastic about data analysis and machine learning applications.",
       email: "mentor2@example.com",
@@ -31,7 +31,7 @@ function Mentorship() {
     },
     {
       id: 3,
-      name: "Sainath P",
+      name: "Priyal Jain",
       expertise: "UX Design",
       description: "Dedicated to crafting intuitive and visually appealing user experiences.",
       email: "mentor3@example.com",
@@ -40,35 +40,16 @@ function Mentorship() {
     },
     {
       id: 4,
-      name: "Alice M",
-      expertise: "Mobile App Development",
-      description: "Specialized in building cross-platform mobile applications.",
-      email: "mentor4@example.com",
-      photo: mentor4, // You can replace it with another image
-      calendlyLink: "https://calendly.com/alice/30min",
-    },
-    {
-      id: 5,
-      name: "Bob S",
-      expertise: "UI/UX Design",
-      description: "Creative designer passionate about crafting beautiful user interfaces.",
-      email: "mentor5@example.com",
-      photo: mentor5, // You can replace it with another image
-      calendlyLink: "https://calendly.com/bob-design/30min",
-    },
-    {
-      id: 6,
-      name: "Charlie P",
+      name: "Aditya Surve",
       expertise: "Data Analytics",
       description: "Experienced in data analysis and deriving meaningful insights.",
       email: "mentor6@example.com",
-      photo: mentor6, // You can replace it with another image
+      photo: mentor4, // You can replace it with another image
       calendlyLink: "https://calendly.com/charlie-analytics/30min",
     },
   ];
     // Add more mentors as needed
   
-
   const handleSendEmail = (email) => {
     const emailLink = `mailto:${email}?subject=Meeting%20Request&body=Dear%20mentor,%0D%0A%0D%0AI would like to schedule a meeting with you.%0D%0A%0D%0ABest%20regards,%0D%0A[Your%20Name]`;
     window.location.href = emailLink;

@@ -56,9 +56,6 @@ recognition.maxAlternatives = 1;
 //     )
 // }
 
-
-
-
 function ResumeMaker() {
   const [uname, setName] = useState("");
   const [qual, setQual] = useState("");
@@ -73,6 +70,8 @@ const [project, setProject] = useState("");
 const  [prodetails, setProdetails] = useState("");
 const handleSubmit =async () => {
 
+  const processedEmail = email.replace(/at the rate/g, "@").replace(/\s+/g, "");
+  const processedContact = contact.replace(/\s+/g, "");
     const dat =  fetch("http://localhost:4000/resume", {
       method: "POST",
       headers: {
@@ -85,7 +84,7 @@ const handleSubmit =async () => {
         achievements: achieves,
         interestedIn: interests,
         disabilityType: disability,
-        email: email,
+        email: processedEmail,
         contact: contact,
         userId: localStorage.getItem("userId"),
       }),
@@ -141,10 +140,12 @@ const handleSubmit =async () => {
           setDisabilities(word);
           break;
         case "email id":
-          setEmail(word);
+          const processedEmail = word.replace(/at the rate/g, "@").replace(/\s+/g, "");
+          setEmail(processedEmail);
           break;
         case "contact number":
-          setContact(word);
+          const processedContact = word.replace(/\s+/g, "");
+          setContact(processedContact);
           break;
         default:
           return null;
