@@ -22,7 +22,7 @@ function Navbar() {
 
   useEffect(() => {
     // You may need to implement the logic to control Colorblindly extension
-    // based on the `colorBlind` state
+    // based on the colorBlind state
   }, [colorBlind]);
 
   return (
