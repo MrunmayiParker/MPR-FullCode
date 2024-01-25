@@ -5,22 +5,20 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 // import { confirmAlert } from "react-confirm-alert";
 
+
 export default function Jobs() {
   const [jobs, setJobs] = useState([]);
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
   const [curJobId, setCurJobId] = useState("");
   const [curJob, setCurJob] = useState({});
-
   useEffect(() => {
     const fetchJobs = async () => {
-      try {
-        const data = await getJobs();
-        setJobs(data || []); // Ensure data is an array or default to an empty array
-      } catch (error) {
-        console.error("Error fetching jobs:", error);
-        // Handle the error, e.g., show a message to the user
-      }
+      const data = await getJobs();
+
+      console.log(data);
+
+      setJobs(data);
     };
 
     fetchJobs();
@@ -32,25 +30,17 @@ export default function Jobs() {
     const userId = localStorage.getItem("userId");
     setModal(true);
 
-    try {
-      await applyJob(jobId, userId);
-      toast.success("Applied Successfully");
+    const res = await applyJob(jobId, userId)
+      .then((res) => {
+        toast.success("Applied Successfully");
+      })
+      .catch((err) => {
+        toast.error("Error in Applying");
+      });
 
-      // Assuming you want to update the state after successful application
-      setJobs((prevJobs) =>
-        prevJobs.map((job) =>
-          job._id === jobId
-            ? { ...job, applicants: [...job.applicants, userId] }
-            : job
-        )
-      );
-
-      setModal(false);
-    } catch (err) {
-      console.error("Error in Applying:", err);
-      toast.error("Error in Applying");
-    }
+    // alert("Applied Successfully");
   };
+
   const hasApplied = (applicants) => {
     const userId = localStorage.getItem("userId");
     if (applicants.includes(userId)) {
@@ -66,13 +56,12 @@ export default function Jobs() {
       <div className="grid grid-cols-2 gap-10 py-10 px-48">
         {jobs.map((job) => (
           <button
-          key={job._id}
-          tabIndex={0}
-          onClick={() => {
-            setModal(true);
-            setCurJobId(job._id);
-            setCurJob(job);
-          }}
+            tabIndex={0}
+            onClick={() => {
+              setModal(true);
+              setCurJobId(job._id);
+              setCurJob(job);
+            }}
             className="w-full items-start bg-white mx-2 grid max-w-screen-md grid-cols-12 space-x-8 overflow-hidden rounded-lg border py-8 text-gray-700 shadow transition hover:shadow-lg sm:mx-auto"
           >
             <div className="col-span-11 flex flex-col px-10 text-left">
@@ -111,17 +100,12 @@ export default function Jobs() {
                   </span>
                 </div>
                 <div className>
-                {job.tags && job.tags.length > 0 && (
-                 <div className>
                   Tags:
-                   {job.tags.map((tag, index) => (
-                   <span className="ml-2 mr-1 rounded-full bg-blue-100 px-2 py-0.5 text-blue-900">
+                  {job.tags.map((tag) => (
+                    <span className="ml-2 mr-1 rounded-full bg-blue-100 px-2 py-0.5 text-blue-900">
                       <span className="mr-1">{tag}</span>
                     </span>
-                   ))}
-                 </div>
-                 )}
-                 
+                  ))}
                 </div>
                 <div className>
                   {hasApplied(job.applicants) && (
@@ -213,4 +197,3 @@ export default function Jobs() {
     </div>
   );
 }
-

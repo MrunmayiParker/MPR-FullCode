@@ -32,10 +32,10 @@ function Blogs() {
                 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
                 aria-label="This is blog page"
               >
-                Audible Forum
+                Ideas 
               </a>
               <p className="mt-2 text-lg leading-8 text-gray-600">
-                Don't only read the Forum, now listen them too!
+                "Be a Part of Empowering Lives. Your Contribution, Their Independence – Together, We Create Accessible Futures!"
               </p>
             </div>
             <div>

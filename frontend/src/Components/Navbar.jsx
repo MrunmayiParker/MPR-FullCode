@@ -72,7 +72,7 @@ function Navbar() {
               aria-label="This is blogpage"
               onClick={() => navigate("/blogs")}
             >
-              Blogs
+              Products
             </button>
             <br />
             <button

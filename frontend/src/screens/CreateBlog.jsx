@@ -67,10 +67,11 @@ export default function CreateBlog() {
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-blue-500 block w-full p-2.5"
                 >
                   <option selected>Select category</option>
-                  <option value="help">Help</option>
-                  <option value="discussion">Discussion</option>
-                  <option value="information">Information</option>
-                  <option value="news">News</option>
+                  <option value="Art work">Art work</option>
+                  <option value="Mobility and Navigation">Mobility and Navigation</option>
+                  <option value="Education">Education</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
@@ -95,7 +96,7 @@ export default function CreateBlog() {
               type="submit"
               className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-600 rounded-lg focus:ring-4 focus:ring-primary-200 "
             >
-              Add Blog
+              Add Product
             </button>
           </form>
         </div>

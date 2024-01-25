@@ -23,7 +23,7 @@ import AboutUs from "./Components/AboutUs";
 import CreateBlog from "./screens/CreateBlog";
 import Jobs from "./Components/Jobs";
 import Setting from "./screens/Settings";
-
+import Register2 from "./Components/Register2";
 function App() {
   return (
     <div>

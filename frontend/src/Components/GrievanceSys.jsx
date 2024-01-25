@@ -41,7 +41,7 @@ function GrievanceSys() {
   return (
     <div className="bg-gray-100 min-h-screen">
       <Navbar />
-      <div className="w-full flex flex-col justify-center items-center h-[76vh]">
+      <div className="w-full flex flex-col justify-center items-center">
         <div className="bg-white p-8 rounded-md shadow-md max-w-md w-full text-center">
           <h2 className="text-3xl font-bold mb-5">Grievances</h2>
           <p className="text-base mb-5">
