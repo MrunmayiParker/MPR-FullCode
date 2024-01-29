@@ -9,6 +9,7 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 import Navbar from './Navbar';
+import './Jobs.css';
 // import SearchBar from './Searchbar'
 const Jobs = () => {
   const [keyword, setKeyword] = useState('');
@@ -34,20 +35,27 @@ const Jobs = () => {
   };
 
   return (
-    <div>
+    <div className='body-wrap boxed-container margin'>
       <Navbar />
-      <form onSubmit={handleSubmit}>
-        <label>
-          Enter your field of interest:
+      <div className="flex items-center justify-center">
+        <form onSubmit={handleSubmit} className="flex">
+          <label className="sr-only">Enter your field of interest:</label>
           <input
             type="text"
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
+            placeholder="Enter your field of interest"
+            className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mr-2"
           />
-        </label>
-        <button type="submit">Submit</button>
-        {/* <div className='d-grid '><MDBBtn color='primary'><button type="submit">Submit</button></MDBBtn></div> */}
-      </form>
+          <button
+            type="submit"
+            className='bg-blue-500 border-0 focus:outline-none hover:bg-blue-500 inline-flex items-center px-3 py-2 rounded text-base text-white'
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+  
       <div>
   
         {jobsInfo && jobsInfo.map((job, index) => (
@@ -70,7 +78,8 @@ const Jobs = () => {
         ))}
       </div>
     </div>
-  );
+  
+    );
 };
 
 export default Jobs;
